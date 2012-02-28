@@ -92,6 +92,10 @@ public class TestWindow extends Window {
     @Override public void togglePanel(int featureId, KeyEvent event) {
     }
 
+    @Override
+    public void invalidatePanelMenu(int i) {
+    }
+
     @Override public boolean performPanelShortcut(int featureId, int keyCode, KeyEvent event, int flags) {
         return false;
     }
@@ -137,11 +141,21 @@ public class TestWindow extends Window {
         return false;
     }
 
+    @Override
+    public boolean superDispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        return false;
+    }
+
     @Override public boolean superDispatchTouchEvent(MotionEvent event) {
         return false;
     }
 
     @Override public boolean superDispatchTrackballEvent(MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean superDispatchGenericMotionEvent(MotionEvent motionEvent) {
         return false;
     }
 

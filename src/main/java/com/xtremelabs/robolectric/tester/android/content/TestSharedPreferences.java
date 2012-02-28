@@ -34,6 +34,11 @@ public class TestSharedPreferences implements SharedPreferences {
         return (String) getValue(key, defValue);
     }
 
+    @Override
+    public Set<String> getStringSet(String s, Set<String> strings) {
+        return null;
+    }
+
     private Object getValue(String key, Object defValue) {
         Map<String, Object> fileHash = content.get(filename);
         if (fileHash != null) {
@@ -104,6 +109,11 @@ public class TestSharedPreferences implements SharedPreferences {
             editsThatNeedCommit.put(key, value);
             editsThatNeedRemove.remove(key);
             return this;
+        }
+
+        @Override
+        public Editor putStringSet(String s, Set<String> strings) {
+            return null;
         }
 
         @Override

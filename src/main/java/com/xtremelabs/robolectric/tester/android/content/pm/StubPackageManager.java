@@ -246,6 +246,14 @@ public class StubPackageManager extends PackageManager {
         return null;
     }
 
+    @Override
+    public void verifyPendingInstall(int i, int i1) {
+    }
+
+    @Override
+    public void setInstallerPackageName(String s, String s1) {
+    }
+
     @Override public String getInstallerPackageName(String packageName) {
         return null;
     }
