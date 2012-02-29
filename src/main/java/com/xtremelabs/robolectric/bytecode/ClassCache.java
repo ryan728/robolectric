@@ -45,16 +45,16 @@ public class ClassCache {
             // no problem
         }
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override public void run() {
-                Manifest manifest = new Manifest();
-                Attributes attributes = new Attributes();
-                attributes.put(VERSION_ATTRIBUTE, String.valueOf(expectedCacheVersion));
-                manifest.getEntries().put("robolectric", attributes);
-
-                saveAllClassesToCache(cacheJarFile, manifest);
-            }
-        });
+//        Runtime.getRuntime().addShutdownHook(new Thread() {
+//            @Override public void run() {
+//                Manifest manifest = new Manifest();
+//                Attributes attributes = new Attributes();
+//                attributes.put(VERSION_ATTRIBUTE, String.valueOf(expectedCacheVersion));
+//                manifest.getEntries().put("robolectric", attributes);
+//
+//                saveAllClassesToCache(cacheJarFile, manifest);
+//            }
+//        });
     }
 
     public byte[] getClassBytesFor(String name) {
