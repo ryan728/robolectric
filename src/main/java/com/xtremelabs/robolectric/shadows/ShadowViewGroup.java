@@ -1,17 +1,16 @@
 package com.xtremelabs.robolectric.shadows;
 
-import static com.xtremelabs.robolectric.Robolectric.shadowOf;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation.AnimationListener;
+import com.xtremelabs.robolectric.internal.Implementation;
+import com.xtremelabs.robolectric.internal.Implements;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation.AnimationListener;
-
-import com.xtremelabs.robolectric.internal.Implementation;
-import com.xtremelabs.robolectric.internal.Implements;
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 
 /**
  * Shadow for {@code ViewGroup} that simulates its implementation
@@ -116,6 +115,14 @@ public class ShadowViewGroup extends ShadowView {
     @Implementation
     public void removeViewAt(int position) {
         shadowOf(children.remove(position)).parent = null;
+    }
+
+    @Implementation
+    public void removeView(View view) {
+        int position = indexOfChild(view);
+        if (position >= 0) {
+            removeViewAt(position);
+        }
     }
 
     @Override @Implementation
