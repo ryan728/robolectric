@@ -6,6 +6,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.StatusLine;
+import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 
 import java.util.Locale;
@@ -113,7 +114,7 @@ public class HttpResponseStub implements HttpResponse {
     }
 
     @Override public HttpParams getParams() {
-        throw new UnsupportedOperationException();
+        return new BasicHttpParams();
     }
 
     @Override public void setParams(HttpParams httpParams) {
